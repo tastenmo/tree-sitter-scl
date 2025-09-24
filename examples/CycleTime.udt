@@ -1,0 +1,13 @@
+NAMESPACE Base
+TYPE tCycleTime_1
+{ Published := 'TRUE' }
+VERSION : 0.1
+   STRUCT
+      initialCall { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      lastCycleTime_ms { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : DInt;
+      lastCycleTime { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : LReal;
+   END_STRUCT;
+
+END_TYPE
+END_NAMESPACE
+

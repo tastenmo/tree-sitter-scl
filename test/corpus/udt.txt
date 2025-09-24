@@ -1,0 +1,29 @@
+=============
+No namespace
+=============
+
+TYPE "tTest"
+VERSION : 1.0
+   STRUCT
+      dummy : Byte;
+   END_STRUCT;
+
+END_TYPE
+
+---
+
+(source_file
+    (type_definition
+        name: (identifier
+          (quoted_identifier))
+        (version
+          value: (real_literal))
+        (struct_definition
+          (fields
+            name: (identifier
+              (simple_identifier))
+            (type
+              (elementary_type
+                (elementary_type_names
+                  (bit_string_type_names))))))))
+
