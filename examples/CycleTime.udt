@@ -1,4 +1,6 @@
 NAMESPACE Base
+
+Ken and reeza
 TYPE tCycleTime_1
 { Published := 'TRUE' }
 VERSION : 0.1
