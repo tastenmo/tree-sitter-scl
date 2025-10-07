@@ -1,0 +1,11 @@
+DATA_BLOCK "AHU1_AE1_Data"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+ "UDT_AHU_AE1_Data"
+
+BEGIN
+   UDT_BYP_Act1.BOOL_EnableFaceplate := FALSE;
+   UDT_BYP_Act1.BOOL_SensorValueValid := TRUE;
+   UDT_BYP_Act1.BOOL_Release := FALSE;
+
+END_DATA_BLOCK

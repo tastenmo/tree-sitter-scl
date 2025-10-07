@@ -1,0 +1,312 @@
+﻿TYPE "UDT_StationAlarm"
+VERSION : 0.1
+   STRUCT
+      BOOL_AlarmFault : Bool;   // Alarm fault active
+      BOOL_AlarmMessageStop : Bool;   // Alarm message stop active
+      BOOL_AlarmMessageWait : Bool;   // Alarm message wait active
+      BOOL_AlarmMessage : Bool;   // Alarm message active
+      BOOL_AlarmIntervention : Bool;   // Alarm intervention request active
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_FaultMessage"
+VERSION : 0.1
+   STRUCT
+      BOOL_Acknowledge : Bool;   // Acknowledge
+      BOOL_FltMsg : Bool;   // Fault/Message
+      BOOL_HmiAlarmActive : Bool;   // HMI alarm active
+      BOOL_NotAcknow : Bool;   // Not acknowledge
+      BOOL_Trigger : Bool;   // Trigger alarm
+      DINT_MachineReaction : DInt;   // Message,Message Stop, Fault Stop, etc.
+      REAL_DelFaultMessage : Real;   // Delay fault message
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_AlarmAna"
+VERSION : 0.1
+   STRUCT
+      UDT_FltLowAlarmLimit { S7_SetPoint := 'False'} : "UDT_FaultMessage";
+      UDT_FltLowWarnLimit { S7_SetPoint := 'False'} : "UDT_FaultMessage";
+      UDT_FltUpAlarmLimit { S7_SetPoint := 'False'} : "UDT_FaultMessage";
+      UDT_FltUpWarnLimit { S7_SetPoint := 'False'} : "UDT_FaultMessage";
+      UDT_FltSensor { S7_SetPoint := 'False'} : "UDT_FaultMessage";
+      UDT_CollectiveAlarm { S7_SetPoint := 'False'} : "UDT_StationAlarm";
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_DisableAlarm"
+VERSION : 0.1
+   STRUCT
+      BOOL_UpAlarmLimit : Bool;   // Disable upper alarm limit
+      BOOL_UpWarnLimit : Bool;   // Disable upper warning limit
+      BOOL_LowAlarmLimit : Bool;   // Disable lower alarm limit
+      BOOL_LowWarnLimit : Bool;   // Disable lower warning limit
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_AlarmLimit"
+VERSION : 0.1
+   STRUCT
+      REAL_LowAlarmLimit : Real;   // Lower alarm limit
+      REAL_LowWarnLimit : Real;   // Lower warning limit
+      REAL_UpAlarmLimit : Real;   // Upper alarm limit
+      REAL_UpWarnLimit : Real;   // Upper warning limit
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_AlarmCtrlConverter_1"
+VERSION : 0.1
+   STRUCT
+      UDT_FltConverter { S7_SetPoint := 'False'} : "UDT_FaultMessage";   // 33000 Fault converter XXX
+      UDT_MsgWaitConverter { S7_SetPoint := 'False'} : "UDT_FaultMessage";   // 92221 Waiting for converter XXX
+      UDT_CollectiveAlarm { S7_SetPoint := 'False'} : "UDT_StationAlarm";   // Collelctive alarm
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_ActuatorAna"
+TITLE = INSERT TITLE HERE
+VERSION : 0.1
+// INSERT COMMENT HERE
+   STRUCT
+      BOOL_EnableFaceplate : Bool;   // Enable facplate
+      BOOL_OverwSetpAuto : Bool;   // Overwrite setpoint automatic
+      BOOL_SensorValueValid : Bool;   // Sensor value valid
+      BOOL_DisableRamp : Bool;   // Disable ramp
+      BOOL_Release : Bool;   // Release service function
+      DINT_ModeMonitAna : DInt;   // Mode monitoring analog
+      DINT_ModeOut : DInt;   // Mode output
+      DINT_ModeSensor : DInt;   // Mode
+      DINT_OutMaxValOutput : DInt;   // Maximum value output
+      DINT_OutMinValOutput : DInt;   // Minimum value output
+      DINT_SensorFltBitMask : DInt;   // Spare
+      DINT_SensorMaxValInput : DInt;   // Maximum value input
+      DINT_SensorMinValInput : DInt;   // Minimum value input
+      DINT_Status : DInt;   // Status (e.g. P&ID)
+      REAL_DelAlarmLimit : Real;   // Data Status (e.g. P&ID)
+      REAL_SensorMinValOutput : Real;   // Minimum value output
+      REAL_SensorMaxValOutput : Real;   // Maximum value output
+      REAL_SensorDelFltSensor : Real;   // Delay fault sensor
+      REAL_SensorOffset : Real;   // Offeset
+      REAL_OutMaxValInput : Real;   // Maximum value input
+      REAL_OutMinValInput : Real;   // Minimum value input
+      REAL_RampTimeBase : Real;   // Time base
+      REAL_RampNomWidth : Real;   // Nominal width
+      REAL_SensorValue : Real;   // Sensor value (eng. unit) e.g.[Pa]
+      REAL_SetpMan : Real;   // Setpoint manual
+      REAL_SetpAuto : Real;   // Setpoint automatic
+      REAL_SetpToActuator : Real;   // Setpoint to actuator
+      REAL_SetpToRamped : Real;   // Setpoint ramped
+      UDT_Alarm : "UDT_AlarmAna";   // Alarm
+      UDT_DisAlarm : "UDT_DisableAlarm";   // Disable alarm
+      UDT_AlarmLimit : "UDT_AlarmLimit";   // Alarm limit
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_ProcPara"
+VERSION : 0.1
+   STRUCT
+      REAL_StartUp : Real;   // Start up
+      REAL_ProdPrep : Real;   // Production preparantion
+      REAL_TightTest : Real;   // Tightness test
+      REAL_DecoGene : Real;   // Decontamination - General
+      REAL_DecoDehum : Real;   // Decontamination - Dehumidification
+      REAL_DecoInj1 : Real;   // Decontamination - Injektion 1
+      REAL_DecoAerat1 : Real;   // Decontamination - Aeration1
+      REAL_DecoAerat2 : Real;   // Decontamination - Aeration 2
+      REAL_DecoSafeAer : Real;   // Decontamination - safety aeration
+      REAL_DecoResConcMeas : Real;   // Decontamination - Residual concentration measurement
+      REAL_ProdCold : Real;   // Production - Cold
+      REAL_ProdGeneral : Real;   // Production - General
+      REAL_ProdRegular : Real;   // Production - Regular
+      REAL_PostDeco : Real;   // Post decontamination
+      REAL_WashDo : Real;   // Wash down
+      REAL_WashDoDry : Real;   // Wash down -Drying
+      REAL_GlobAbort : Real;   // Global abort
+      REAL_DecoLeakTest : Real;   // Decontamination - Leak test
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_Sensor"
+VERSION : 0.1
+   STRUCT
+      BOOL_SensorValueValid : Bool;   // Sensor value valid
+      DINT_MonitAnaMode : DInt;   // Monitoring analog 
+      DINT_SensFltBitMask : DInt;   // Fault bit mask
+      DINT_SensMaxValInput : DInt;   // Sensor maximum value input
+      DINT_SensMinValInput : DInt;   // Sensor minimum value input
+      DINT_SensMode : DInt;   // Sensor mode
+      REAL_CorrFactor : Real;   // Correction factor
+      REAL_DelAlarmLimit : Real;   // Delay alarm limit
+      REAL_SensDelFltSensor : Real;   // Delay fault sensor
+      REAL_SensMaxValOutput : Real;   // Sensor maximum value output
+      REAL_SensMinValOutput : Real;   // Sensor minimum value output
+      REAL_SensOffset : Real;   // Sensor offset
+      REAL_SensorValue : Real;   // Sensor value (eng. unit) e.g.[Pa]
+      UDT_Alarm { S7_SetPoint := 'False'} : "UDT_AlarmAna";   // Alarms
+      UDT_AlarmLimit { S7_SetPoint := 'False'} : "UDT_AlarmLimit";   // Alarm limit
+      UDT_DisAlarm : "UDT_DisableAlarm";   // Disable alarm
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_CtrlConverter_1"
+TITLE = Control converter 2
+VERSION : 0.1
+//e.g. Ziel Abegg
+   STRUCT
+      UDT_Alarm : "UDT_AlarmCtrlConverter_1";   // Alarm
+      BOOL_DisableRamp { S7_SetPoint := 'True'} : Bool;   // Disable ramp
+      BOOL_EnableFaceplate { S7_SetPoint := 'True'} : Bool;   // Enable faceplate
+      BOOL_Release { S7_SetPoint := 'True'} : Bool;   // Release service function
+      BOOL_OverwSetpAuto { S7_SetPoint := 'True'} : Bool;   // Overwrite setpoint automatic
+      BOOL_ServOpenBrake : Bool;   // Service open brake
+      DINT_Status { S7_SetPoint := 'True'} : DInt;   // Status of actuator
+      REAL_RampNomWidth { S7_SetPoint := 'True'} : Real;   // Ramp Nominal width
+      REAL_MaxFrequence { S7_SetPoint := 'True'} : Real;   // Maximum frequence
+      REAL_MinFrequence { S7_SetPoint := 'True'} : Real;   // Minimum frequence
+      REAL_SensorValue : Real;   // Sensor Value
+      REAL_SetpAuto { S7_SetPoint := 'True'} : Real;   // Setpoint automatic
+      REAL_SetpMan { S7_SetPoint := 'True'} : Real;   // Setpoint manual
+      REAL_SetpToActuator { S7_SetPoint := 'True'} : Real;   // Setpoint to actuator
+      REAL_SetpToRamp : Real;   // Setpoint to ramp
+      REAL_RampTimeBase { S7_SetPoint := 'True'} : Real;   // Ramp Time base
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_AHU_AE1_Data_FAN_MS"
+VERSION : 0.1
+   STRUCT
+      BOOL_ActivateSubstCtrlVal1 : Bool;   // Air handling unit 1 - Air exhaust - Activate substainable value
+      BOOL_ActivateSubstCtrlVal2 : Bool;   // Air handling unit 1 - Air exhaust - Activate substainable value
+      BOOL_ActivateSubstCtrlVal3 : Bool;   // Air handling unit 1 - Air exhaust - Activate substainable value
+      REAL_SubstCtrlValue : Real;   // Air handling unit 1 - Air exhaust - Substainable value
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "UDT_AHU_AE1_Data"
+VERSION : 0.1
+   STRUCT
+      UDT_BYP_Act1 { S7_SetPoint := 'False'} : "UDT_ActuatorAna";   // Bypass
+      UDT_BYP_Para : "UDT_ProcPara";   // Bypass parameter
+      UDT_CPD1 : "UDT_Sensor";   // Check pressure drop 1
+      UDT_FAN1 : "UDT_CtrlConverter_1";   // Fan 1 (main fan)
+      UDT_FAN2 : "UDT_CtrlConverter_1";   // Fan 1 (bypass fan)
+      UDT_PAS_Act1 : "UDT_ActuatorAna";   // Outlet
+      UDT_PAS_Para : "UDT_ProcPara";   // Outlet parameter
+      UDT_FAN2_MS { S7_SetPoint := 'False'} : "UDT_AHU_AE1_Data_FAN_MS";
+   END_STRUCT;
+
+END_TYPE
+
+DATA_BLOCK "AHU1_AE1_Data"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+ "UDT_AHU_AE1_Data"
+
+BEGIN
+   UDT_BYP_Act1.BOOL_EnableFaceplate := FALSE;
+   UDT_BYP_Act1.BOOL_SensorValueValid := TRUE;
+   UDT_BYP_Act1.BOOL_Release := FALSE;
+   UDT_BYP_Act1.DINT_ModeMonitAna := 211;
+   UDT_BYP_Act1.DINT_ModeOut := 11;
+   UDT_BYP_Act1.DINT_ModeSensor := 10;
+   UDT_BYP_Act1.DINT_SensorFltBitMask := 3;
+   UDT_BYP_Act1.DINT_Status := 1;
+   UDT_BYP_Act1.REAL_DelAlarmLimit := 20.0;
+   UDT_BYP_Act1.REAL_SensorMaxValOutput := 100.0;
+   UDT_BYP_Act1.REAL_SensorDelFltSensor := 10.0;
+   UDT_BYP_Act1.REAL_OutMaxValInput := 100.0;
+   UDT_BYP_Act1.REAL_RampTimeBase := 1.0;
+   UDT_BYP_Act1.REAL_RampNomWidth := 3.0;
+   UDT_BYP_Act1.REAL_SensorValue := 0.0;
+   UDT_BYP_Act1.REAL_SetpMan := 100.0;
+   UDT_BYP_Act1.REAL_SetpAuto := 0.0;
+   UDT_BYP_Act1.REAL_SetpToActuator := 0.0;
+   UDT_BYP_Act1.REAL_SetpToRamped := 0.0;
+   UDT_BYP_Act1.UDT_Alarm.UDT_FltUpAlarmLimit.DINT_MachineReaction := 11;
+   UDT_BYP_Act1.UDT_Alarm.UDT_FltSensor.BOOL_FltMsg := FALSE;
+   UDT_BYP_Act1.UDT_Alarm.UDT_FltSensor.BOOL_Trigger := FALSE;
+   UDT_BYP_Act1.UDT_Alarm.UDT_FltSensor.DINT_MachineReaction := 11;
+   UDT_BYP_Act1.UDT_Alarm.UDT_CollectiveAlarm.BOOL_AlarmFault := FALSE;
+   UDT_BYP_Act1.UDT_DisAlarm.BOOL_UpWarnLimit := TRUE;
+   UDT_BYP_Act1.UDT_DisAlarm.BOOL_LowWarnLimit := TRUE;
+   UDT_BYP_Act1.UDT_AlarmLimit.REAL_UpAlarmLimit := 10.0;
+   UDT_BYP_Para.REAL_DecoDehum := 100.0;
+   UDT_BYP_Para.REAL_DecoInj1 := 80.0;
+   UDT_BYP_Para.REAL_DecoAerat1 := 100.0;
+   UDT_CPD1.BOOL_SensorValueValid := TRUE;
+   UDT_CPD1.DINT_MonitAnaMode := 100;
+   UDT_CPD1.DINT_SensFltBitMask := 3;
+   UDT_CPD1.DINT_SensMode := 11;
+   UDT_CPD1.REAL_DelAlarmLimit := 10.0;
+   UDT_CPD1.REAL_SensMaxValOutput := 1000.0;
+   UDT_CPD1.REAL_SensorValue := 1.465201;
+   UDT_CPD1.UDT_Alarm.UDT_FltUpAlarmLimit.BOOL_FltMsg := FALSE;
+   UDT_CPD1.UDT_Alarm.UDT_FltUpAlarmLimit.BOOL_Trigger := FALSE;
+   UDT_CPD1.UDT_Alarm.UDT_FltUpAlarmLimit.DINT_MachineReaction := 11;
+   UDT_CPD1.UDT_Alarm.UDT_FltSensor.DINT_MachineReaction := 11;
+   UDT_CPD1.UDT_Alarm.UDT_CollectiveAlarm.BOOL_AlarmFault := FALSE;
+   UDT_CPD1.UDT_AlarmLimit.REAL_UpAlarmLimit := 250.0;
+   UDT_CPD1.UDT_DisAlarm.BOOL_UpWarnLimit := TRUE;
+   UDT_CPD1.UDT_DisAlarm.BOOL_LowAlarmLimit := TRUE;
+   UDT_CPD1.UDT_DisAlarm.BOOL_LowWarnLimit := TRUE;
+   UDT_FAN1.UDT_Alarm.UDT_FltConverter.DINT_MachineReaction := 11;
+   UDT_FAN1.BOOL_EnableFaceplate := FALSE;
+   UDT_FAN1.BOOL_ServOpenBrake := FALSE;
+   UDT_FAN1.DINT_Status := 1;
+   UDT_FAN1.REAL_MaxFrequence := 100.0;
+   UDT_FAN1.REAL_SensorValue := 0.0;
+   UDT_FAN1.REAL_SetpMan := 0.0;
+   UDT_FAN1.REAL_SetpToActuator := 0.0;
+   UDT_FAN1.REAL_SetpToRamp := 0.0;
+   UDT_FAN2.UDT_Alarm.UDT_FltConverter.BOOL_FltMsg := FALSE;
+   UDT_FAN2.UDT_Alarm.UDT_FltConverter.BOOL_Trigger := FALSE;
+   UDT_FAN2.UDT_Alarm.UDT_FltConverter.DINT_MachineReaction := 11;
+   UDT_FAN2.UDT_Alarm.UDT_CollectiveAlarm.BOOL_AlarmFault := FALSE;
+   UDT_FAN2.BOOL_EnableFaceplate := FALSE;
+   UDT_FAN2.BOOL_ServOpenBrake := FALSE;
+   UDT_FAN2.DINT_Status := 1;
+   UDT_FAN2.REAL_MaxFrequence := 100.0;
+   UDT_FAN2.REAL_SensorValue := 0.0;
+   UDT_FAN2.REAL_SetpMan := 10.0;
+   UDT_FAN2.REAL_SetpToActuator := 0.0;
+   UDT_FAN2.REAL_SetpToRamp := 0.0;
+   UDT_PAS_Act1.BOOL_EnableFaceplate := FALSE;
+   UDT_PAS_Act1.BOOL_SensorValueValid := TRUE;
+   UDT_PAS_Act1.BOOL_Release := FALSE;
+   UDT_PAS_Act1.DINT_ModeMonitAna := 211;
+   UDT_PAS_Act1.DINT_ModeOut := 510;
+   UDT_PAS_Act1.DINT_ModeSensor := 511;
+   UDT_PAS_Act1.DINT_SensorFltBitMask := 3;
+   UDT_PAS_Act1.DINT_Status := 1;
+   UDT_PAS_Act1.REAL_DelAlarmLimit := 135.0;
+   UDT_PAS_Act1.REAL_SensorMaxValOutput := 100.0;
+   UDT_PAS_Act1.REAL_SensorDelFltSensor := 10.0;
+   UDT_PAS_Act1.REAL_OutMaxValInput := 100.0;
+   UDT_PAS_Act1.REAL_RampTimeBase := 2.0;
+   UDT_PAS_Act1.REAL_RampNomWidth := 2.0;
+   UDT_PAS_Act1.REAL_SensorValue := 1.110052;
+   UDT_PAS_Act1.REAL_SetpMan := 0.0;
+   UDT_PAS_Act1.REAL_SetpAuto := 0.0;
+   UDT_PAS_Act1.REAL_SetpToActuator := 0.0;
+   UDT_PAS_Act1.REAL_SetpToRamped := 0.0;
+   UDT_PAS_Act1.UDT_Alarm.UDT_FltUpAlarmLimit.DINT_MachineReaction := 11;
+   UDT_PAS_Act1.UDT_Alarm.UDT_FltSensor.DINT_MachineReaction := 11;
+   UDT_PAS_Act1.UDT_DisAlarm.BOOL_UpWarnLimit := TRUE;
+   UDT_PAS_Act1.UDT_DisAlarm.BOOL_LowWarnLimit := TRUE;
+   UDT_PAS_Act1.UDT_AlarmLimit.REAL_UpAlarmLimit := 15.0;
+   UDT_PAS_Para.REAL_DecoAerat1 := 80.0;
+   UDT_PAS_Para.REAL_ProdGeneral := 100.0;
+
+END_DATA_BLOCK
+

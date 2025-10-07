@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: tree-sitter-scl
+Version: 0.1.0
+Summary: SCL grammar for tree-sitter
+Author-email: Martin Heubuch <martin.heubuch@spie-escad.de>
+License: MIT
+Project-URL: Homepage, https://github.com/tastenmo/tree-sitter-scl.git
+Keywords: incremental,parsing,tree-sitter,scl
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: core
+Requires-Dist: tree-sitter~=0.24; extra == "core"
+
+# tree-sitter-scl
+SCL grammar for tree-sitter
+
+
+"https://github.com/tastenmo/tree-sitter-scl.git"
+
+
+Getting started:
+
+Requirements:
+
+    Node.js installed (https://nodejs.org/)
+
+    https://nodejs.org/dist/v22.20.0/node-v22.20.0-x64.msi
+
+
+
+1. Install tree-sitter CLI tool
+
+   ```bash
+   npm install -g tree-sitter-cli
+   ```
+
+
+

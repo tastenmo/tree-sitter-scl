@@ -1,0 +1,6 @@
+# in MANIFEST.in
+include grammar.js
+include pyproject.toml
+recursive-include src *.c
+recursive-include src *.h
+recursive-include queries *.scm
