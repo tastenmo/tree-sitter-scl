@@ -7,6 +7,8 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+//  update for tia blocks
+
 module.exports = grammar({
   name: "scl",
 
