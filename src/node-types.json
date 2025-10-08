@@ -24,10 +24,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -61,6 +57,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -110,10 +110,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -146,6 +142,10 @@
             "named": true
           },
           {
+            "type": "typed_literal",
+            "named": true
+          },
+          {
             "type": "unary_expression",
             "named": true
           }
@@ -170,10 +170,6 @@
         },
         {
           "type": "bool_literal",
-          "named": true
-        },
-        {
-          "type": "date_time_literal",
           "named": true
         },
         {
@@ -206,6 +202,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -240,10 +240,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -273,6 +269,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -315,10 +315,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -352,6 +348,10 @@
         },
         {
           "type": "type",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -442,10 +442,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -475,6 +471,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -570,10 +570,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -603,6 +599,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -648,10 +648,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -681,6 +677,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -726,10 +726,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -759,6 +755,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -872,11 +872,6 @@
     }
   },
   {
-    "type": "date_time_literal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "date_type_names",
     "named": true,
     "fields": {}
@@ -925,10 +920,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "elementary_type_names",
           "named": true
         },
@@ -962,6 +953,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -1042,10 +1037,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1075,6 +1066,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1143,10 +1138,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -1176,6 +1167,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -1210,10 +1205,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1243,6 +1234,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1302,10 +1297,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1335,6 +1326,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1374,10 +1369,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1407,6 +1398,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1436,10 +1431,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1469,6 +1460,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1735,10 +1730,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1768,6 +1759,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1872,10 +1867,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1905,6 +1896,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -1960,10 +1955,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -1993,6 +1984,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -2151,10 +2146,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -2184,6 +2175,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -2223,10 +2218,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -2256,6 +2247,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -2333,10 +2328,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -2370,6 +2361,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -2511,10 +2506,6 @@
           "named": true
         },
         {
-          "type": "date_time_literal",
-          "named": true
-        },
-        {
           "type": "function_call",
           "named": true
         },
@@ -2544,6 +2535,10 @@
         },
         {
           "type": "struct_literal",
+          "named": true
+        },
+        {
+          "type": "typed_literal",
           "named": true
         },
         {
@@ -2643,6 +2638,36 @@
     }
   },
   {
+    "type": "typed_literal",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "simple_identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "real_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "unary_expression",
     "named": true,
     "fields": {
@@ -2664,10 +2689,6 @@
           },
           {
             "type": "bool_literal",
-            "named": true
-          },
-          {
-            "type": "date_time_literal",
             "named": true
           },
           {
@@ -2700,6 +2721,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -2764,10 +2789,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -2797,6 +2818,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
@@ -2875,6 +2900,14 @@
           "named": true
         },
         {
+          "type": "KEYWORD_NON_RETAIN",
+          "named": true
+        },
+        {
+          "type": "KEYWORD_RETAIN",
+          "named": true
+        },
+        {
           "type": "variable_declaration",
           "named": true
         }
@@ -2932,10 +2965,6 @@
             "named": true
           },
           {
-            "type": "date_time_literal",
-            "named": true
-          },
-          {
             "type": "function_call",
             "named": true
           },
@@ -2965,6 +2994,10 @@
           },
           {
             "type": "struct_literal",
+            "named": true
+          },
+          {
+            "type": "typed_literal",
             "named": true
           },
           {
