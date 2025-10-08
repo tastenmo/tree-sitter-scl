@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\Users\OPTIMA Group\Desktop\Hub_M_git\tree-sitter-scl-main_5\tree-sitter-scl-main\.venv"
+set "VIRTUAL_ENV=C:\Users\OPTIMA Group\Desktop\Hub_M_git\tree-sitter-scl-main_5\tree-sitter-scl\.venv"
 
 if not defined PROMPT set PROMPT=$P$G
 
