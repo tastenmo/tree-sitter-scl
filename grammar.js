@@ -225,6 +225,7 @@ module.exports = grammar({
         $.KEYWORD_VAR, $.KEYWORD_VAR_INPUT, $.KEYWORD_VAR_OUTPUT, $.KEYWORD_VAR_IN_OUT,
         $.KEYWORD_VAR_TEMP, $.KEYWORD_VAR_STATIC, $.KEYWORD_CONSTANT
       )),
+      optional(choice($.KEYWORD_RETAIN, $.KEYWORD_NON_RETAIN)),
       repeat($.variable_declaration),
       $.KEYWORD_END_VAR
     ),
@@ -273,30 +274,29 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $.identifier, $.integer_literal, $.real_literal, $.string_literal, $.bool_literal,
-      $.date_time_literal,
+      $.typed_literal, // FINAL FIX
       $.unary_expression, $.binary_expression, $.function_call, $.member_expression,
       $.array_expression, $.parenthesized_expression,
       $.struct_literal,
-      $.array_literal // <-- ADD THE NEW LITERAL TYPE
+      $.array_literal
     ),
     
-    // NEW RULE for Array Initializers like [1, 2, 3] or [(...), (...)]
     array_literal: $ => seq(
         '[',
         sepBy(',', $._expression),
         ']'
     ),
 
-    date_time_literal: $ => seq(
-      field('prefix', choice(
-          caseInsensitive('T'), caseInsensitive('TIME'),
-          caseInsensitive('D'), caseInsensitive('DATE'),
-          caseInsensitive('DT'), caseInsensitive('DATE_AND_TIME'),
-          caseInsensitive('TOD'), caseInsensitive('TIME_OF_DAY')
-      )),
+    // FINAL FIX: This one rule handles all TYPE#VALUE literals
+    typed_literal: $ => prec(1, seq(
+      field('type', $.simple_identifier),
       '#',
-      field('value', /[a-zA-Z0-9_.:-]+/)
-    ),
+      field('value', choice(
+        $.integer_literal,
+        $.real_literal,
+        /[a-zA-Z0-9_.:-]+/ // For time literals like 1h, 05:00:0.000, etc.
+      ))
+    )),
 
     struct_literal: $ => prec(1, seq('(', sepBy(',', $._expression), ')')),
     parenthesized_expression: $ => seq("(", $._expression, ")"),
@@ -351,7 +351,7 @@ module.exports = grammar({
 
     bool_literal: $ => choice(caseInsensitive("TRUE"), caseInsensitive("FALSE")),
     string_literal: $ => /'[^']*'/,
-    real_literal: $ => seq(optional(seq($._real_type_names, "#")), $._real),
+    real_literal: $ => prec(1, seq(optional(seq($._real_type_names, "#")), $._real)),
     _real: $ => /[+-]?[0-9]+(_[0-9]+)*\.[0-9]+(_[0-9]+)*([eE][+-]?[0-9]+)?/,
     integer_literal: $ => choice($._signed_integer, $._unsigned_integer, $._hex_integer, $._binary_integer, $._octal_integer),
     _signed_integer: $ => /[+-]?[0-9](_?[0-9])*/,
@@ -367,7 +367,7 @@ module.exports = grammar({
 
     identifier: $ => choice($.simple_identifier, $.quoted_identifier),
     quoted_identifier: $ => /"[^"]+"/,
-    simple_identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    simple_identifier: $ => /[\p{L}_][\p{L}\p{N}_]*/u,
 
     line_comment: $ => token(seq('//', /.*/)),
     block_comment: $ => token(seq('(*', /[^*]*\*+([^*)][^*]*\*+)*/, ')')),
